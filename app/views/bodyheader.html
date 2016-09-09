@@ -1,0 +1,53 @@
+{{template "header.html" .}}
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbar">
+                <a class="navbar-brand" href="{{url "App.Top"}}">Bonno</a>
+                <ul class="nav navbar-nav">
+                    <li class={{.home}}><a href="{{url "App.Index"}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                    <li class={{.moviehome}}><a href="{{url "App.Movie"}}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>Movie</a></li>
+                    <li class={{.koujihome}}><a href="{{url "App.Index"}}">工事中</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-left" role="search" action="{{url "App.Search"}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Words" name="word">
+                    </div>
+                    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search</button>
+                </form>
+
+                <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signinModal"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Sign in</button>
+
+                <div class="modal fade" id="signinModal" tabindex="-1">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">x</button>
+                                <h3>Login to Bonno</h3>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action='' name="login_form">
+                                    <p><input type="text" class="span3 form-control" name="eid" id="email" placeholder="Email"></p>
+                                    <p><input type="password" class="span3 form-control" name="passwd" placeholder="Password"></p>
+                                    <p><button type="submit" class="btn btn-primary">Sign in</button>
+                                    <a href="#">Forgot Password?</a></p>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                New To Bonno.buttobi.com?
+                                <a href="#" class="btn btn-primary">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            {{template "side.html" .}}
+            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">

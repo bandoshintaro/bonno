@@ -1,0 +1,22 @@
+{{set . "title" "Home"}}
+{{set . "home" "active"}}
+{{template "bodyheader.html" .}}
+
+<div class="page-header"><h1>{{.title}}</h1></div>
+<h1>ぼんのうサーバにようこそ！</h1>
+
+<h2>サービス一覧</h2>
+<div class="container"><div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="thumbnail">
+            {{range .movielist}}
+            <a href="{{url "App.Movie"}}"><img src="{{.Thumb}}"></a>
+            {{end}}
+            <div class="caption">
+                <h3>Movie</h3>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+{{template "bodyfooter.html" .}}

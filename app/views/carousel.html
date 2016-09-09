@@ -1,0 +1,32 @@
+<div class="container"><div class="row">
+<div id="movieCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {{range $index, $movie := .movielist}}
+        <li {{if eq $index 0}}class="active"{{end}} data-target="#movieCarousel" data-slide-to="{{$movie.Id}}"></li>
+        {{end}}
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        {{range $index, $movie := .movielist}}
+        <div class="item {{if eq $index 0}} active{{end}}">
+            <a href="{{url "App.Detail" $movie.Id}}">
+            <img class="center-block" src="{{$movie.Thumb}}" alt="{{$movie.Name}}">
+            <div class="carousel-caption">
+                <h1>{{$movie.Name}}</h1>
+                <p>{{$movie.Description}}</p>
+                <p>{{$movie.Tag1}} {{$movie.Tag2}} {{$movie.Tag3}} {{$movie.Tag4}}</p>
+                <p>{{$movie.DateString}}</p>
+            </div>
+            </a>
+        </div>
+        {{end}}
+    </div>
+    <a class="left carousel-control" href="#movieCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">前へ</span>
+    </a>
+    <a class="right carousel-control" href="#movieCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">次へ</span>
+    </a>
+</div>
+</div></div>

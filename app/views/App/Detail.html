@@ -1,0 +1,54 @@
+{{set . "title" "Movie"}}
+{{set . "moviehome" "active"}}
+{{template "bodyheader.html" .}}
+{{$Path := .movie.Path}}
+<div class="page-header"><h1><a href="{{url "App.Movie"}}">{{.title}}</a><small> {{.movie.Name}} </small></h1></div>
+
+<div class="container"><div class="row">
+    <div class="thumbnail">
+        <img src="{{.movie.Thumb}}" alt="{{.movie.Name}}">
+        <div class="caption">
+            <h2>{{.movie.Name}}</h2>
+            <p>{{.movie.Description}}</p>
+            <p>
+                <a href="{{url "App.Category" .movie.Tag1}}">{{.movie.Tag1}} </a>
+                <a href="{{url "App.Category" .movie.Tag2}}">{{.movie.Tag2}} </a>
+                <a href="{{url "App.Category" .movie.Tag3}}">{{.movie.Tag3}} </a>
+                <a href="{{url "App.Category" .movie.Tag4}}">{{.movie.Tag4}} </a>
+            </p>
+            <p>{{.movie.DateString}}</p>
+        </div>
+        <div class="list-group">
+        {{range $index, $movie := .moviedata}}
+        	<a class="list-group-item" data-toggle="modal" data-target="#movieModal{{$index}}">{{$movie.Name}}</a>
+        {{end}}
+        </div>
+
+        {{range $index, $movie := .moviedata}}
+        <div class="modal fade" id="movieModal{{$index}}" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h3>{{$movie.Name}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <video src="{{$Path}}/{{.Name}}" preload="none" controls width=100% height=100%></video>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#movieModal{{$index}}" class="btn btn-primary">前の動画</a>
+                        <a href="#movieModal{{$index}}" class="btn btn-primary">次の動画</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+
+
+</div></div>
+
+
+
+{{template "bodyfooter.html" .}}

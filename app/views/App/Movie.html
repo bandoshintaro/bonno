@@ -1,0 +1,19 @@
+{{set . "title" "Movie"}}
+{{set . "moviehome" "active"}}
+{{set . "texta" "a"}}
+{{template "bodyheader.html" .}}
+
+<div class="page-header"><h1><a href="{{url "App.Movie"}}">{{.title}}</a></h1></div>
+{{template "carousel.html" .}}
+
+<h1>動画を探す</h1>
+<h2>カテゴリ</h2>
+<div class="container"><div class="row">
+    {{range .catelist}}
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align:center;padding-top:10px;">
+        <a href="{{url "App.Category" .Tag1}}" class="btn btn-default btn-lg btn-block btn-warning">{{.Tag1}}</a>
+    </div>
+    {{end}}
+</div></div>
+
+{{template "bodyfooter.html" .}}

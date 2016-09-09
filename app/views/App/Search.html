@@ -1,0 +1,21 @@
+{{set . "title" "Movie"}}
+{{set . "moviehome" "active"}}
+{{template "bodyheader.html" .}}
+
+<div class="page-header"><h1><a href="{{url "App.Movie"}}">{{.title}}</a><small> 検索結果 {{.word}} </small></h1></div>
+
+<div class="container"><div class="row">
+    {{range .movielist}}
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <div class="thumbnail">
+                <a href="{{url "App.Detail" .Id}}"><img src="{{.Thumb}}"></a>
+                <div class="caption">
+                    <h3>{{.Name}}</h3>
+                    <p><a href="{{url "App.Detail" .Id}}" class="btn btn-default" role="button">見る</a></p>
+                </div>
+            </div>
+        </div>
+    {{end}}
+</div></div>
+
+{{template "bodyfooter.html" .}}

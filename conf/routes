@@ -1,0 +1,15 @@
+
+module:testrunner
+
+GET     /                                       App.Top
+GET     /home                               App.Index
+GET     /douga                              App.Movie
+GET     /douga/search                   App.Movie
+POST   /douga/search                   App.Search
+GET     /douga/:tag                      App.Category
+GET     /douga/detail/:id               App.Detail
+GET     /init                                  App.Init
+
+GET     /favicon.ico                            404
+
+GET     /public/*filepath                       Static.Serve("public")
