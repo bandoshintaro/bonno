@@ -20,7 +20,8 @@ var (
 //テーブルの初期化処理
 
 func InitDB() {
-  db, err := sql.Open("sqlite3", "./app.db")
+  dbdir := revel.Config.StringDefault("bonno.dbdir","./app.db")
+  db, err := sql.Open("sqlite3", dbdir)
   if err != nil {
     panic(err.Error())
   }
