@@ -1,0 +1,4 @@
+.git
+conf/app.db
+app/routes/
+app/tmp/

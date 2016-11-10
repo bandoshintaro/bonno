@@ -20,15 +20,14 @@ var (
 //テーブルの初期化処理
 
 func InitDB() {
-  dbdir := revel.Config.StringDefault("bonno.dbdir","./app.db")
-  db, err := sql.Open("sqlite3", dbdir)
+  dbdir := revel.Config.StringDefault("db.directory","./app.db")
+  dbdriver := revel.Config.StringDefault("db.driver","sqlite3")
+  db, err := sql.Open(dbdriver, dbdir)
   if err != nil {
     panic(err.Error())
   }
   DbMap = &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
 
-
-  // ここより下に、テーブルの作成の処理を書いていく
   t := DbMap.AddTable(models.Movie{}).SetKeys(true, "Id")
   t.ColMap("Name").MaxSize = 50
 
@@ -41,13 +40,6 @@ type GorpController struct {
   *revel.Controller
   Transaction *gorp.Transaction
 }
-
-
-// これより以下はトランザクション処理
-// 必ず定義する
-
-// Begin()でトランザクションを開始して、Commit()でDBに反映、Rollback()で処理を元に戻す処理を書いていく
-
 
 func (c *GorpController) Begin() revel.Result {
   txn, err := DbMap.Begin()

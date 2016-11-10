@@ -18,7 +18,7 @@ func init() {
 		revel.CompressFilter,          // Compress the result.
 		revel.ActionInvoker,           // Invoke the action.
 	}
-
+        revel.ConfPaths = []string{"/bonno"}
 	// register startup functions with OnAppStart
 	// ( order dependent )
 	// revel.OnAppStart(InitDB)
