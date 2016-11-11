@@ -1,4 +1,7 @@
 .git
 conf/app.db
-app/routes/
-app/tmp/
+conf/bonno.log
+app/routes/routes.go
+app/tmp/main.go
+app/.DS_Store
+test_results
