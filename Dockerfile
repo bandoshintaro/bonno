@@ -4,8 +4,6 @@ MAINTAINER bando
 RUN apt update && apt-get install -y sqlite3 libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/* 
 
-RUN mkdir /bonno
-
 RUN set -x \
     && go get github.com/revel/revel \
     && go get github.com/revel/cmd/revel \
