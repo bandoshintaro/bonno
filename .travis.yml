@@ -1,4 +1,14 @@
+language: go
 env:
-    - a=1
+	- a=1
     - b=1
-script: echo a=$a b=$b
+script: 
+    - apt update
+    - apt install -y sqlite3 libsqlite3-dev
+	- cd $GOPATH/src
+    - go get github.com/revel/revel
+    - go get github.com/revel/cmd/revel 
+    - go get gopkg.in/gorp.v1 
+    - go get github.com/mattn/go-sqlite3
+	- git clone https://github.com/bandoshintaro/bonno
+    - revel test bonno
