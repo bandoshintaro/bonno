@@ -1,0 +1,4 @@
+env:
+    - a=1
+    - b=1
+script: echo a=$a b=$b

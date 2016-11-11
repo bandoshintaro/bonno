@@ -1,2 +1,4 @@
-docker_build
 README.md
+docker-compose.yml
+.git
+.travis.yml
