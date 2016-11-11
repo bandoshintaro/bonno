@@ -9,6 +9,6 @@ install:
     - go get gopkg.in/gorp.v1 
     - go get github.com/mattn/go-sqlite3
 script: 
-	- cd $GOPATH/src
-	- git clone https://github.com/bandoshintaro/bonno
+    - cd $GOPATH/src
+    - git clone https://github.com/bandoshintaro/bonno
     - revel test bonno
