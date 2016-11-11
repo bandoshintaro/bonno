@@ -5,5 +5,10 @@
 
 ### Start the web server:
 
-    docker run -itd -p 80:9000 -v ./conf:/bonno bando/bonno
+    $ git clone https://github.com/bandoshintaro/bonno.git
+    $ docker run -itd -p 80:9000 -v ./conf:/go/src/bonno/conf bando/bonno
 
+#### store data
+    $ docker run -it -v .conf:/go/src/bonno/conf bando/bonno
+#### use own movie data
+    $ docker run -it -v /your/own/movie/dir:/go/src/bonno/public/douga bando/bonno
