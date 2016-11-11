@@ -1,4 +1,5 @@
-# Welcome to Bonno
+# Welcome to Bonno 
+[![Build Status](https://travis-ci.org/bandoshintaro/bonno.svg?branch=master)](https://travis-ci.org/bandoshintaro/bonno)
 
 ## Getting Started
 
