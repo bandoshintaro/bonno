@@ -130,6 +130,15 @@ func (_ tTestRunner) Index(
 	return revel.MainRouter.Reverse("TestRunner.Index", args).Url
 }
 
+func (_ tTestRunner) Suite(
+		suite string,
+		) string {
+	args := make(map[string]string)
+	
+	revel.Unbind(args, "suite", suite)
+	return revel.MainRouter.Reverse("TestRunner.Suite", args).Url
+}
+
 func (_ tTestRunner) Run(
 		suite string,
 		test string,

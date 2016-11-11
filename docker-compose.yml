@@ -10,7 +10,7 @@ services:
            DB_DRIVER: sqlite3
            DB_DIRECTORY: /bonno/app.db
        volumes:
-           - ./conf:/bonno
+           - ./conf:/go/src/bonno/conf
            - ./public/douga:/go/src/bonno/public/douga
 
 
