@@ -4,7 +4,7 @@ services:
     traefik:
         image: traefik
         restart: always
-        command: --web --docker --docker.domain=bonno.bttt.local --logLevel=DEBUG
+        command: --web --docker --docker.domain=localhost --logLevel=DEBUG
         ports:
             - "80:80"
             - "8080:8080"
@@ -12,7 +12,7 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
             - /dev/null:/traefik.toml
     bonno:
-        image: bando/bonno
+        build: ./
         restart: always
         environment:
             DB_DRIVER: sqlite3
@@ -22,5 +22,5 @@ services:
            - ./public/douga:/go/src/bonno/public/douga
         labels:
             - "traefik.backend=bonno"
-            - "traefik.frontend.rule=Host:bonno.bttt.local"
+            - "traefik.frontend.rule=Host:localhost"
 
