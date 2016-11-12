@@ -6,7 +6,8 @@
 ### Start the web server:
 
     $ git clone https://github.com/bandoshintaro/bonno.git
-    $ docker run -itd -p 80:9000 -v ./conf:/go/src/bonno/conf bando/bonno
+	$ cd bonno
+    $ docker-compose up -d
 
 #### store data
     $ docker run -it -v .conf:/go/src/bonno/conf bando/bonno
