@@ -8,4 +8,8 @@ build:
     - go get gopkg.in/gorp.v1
     - go get github.com/mattn/go-sqlite3
     - revel test bonno
-
+notify:
+  slack:
+    webhook_url: https://hooks.slack.com/services/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
+    channel: bando_develop
+    username: bando
