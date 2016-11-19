@@ -2,6 +2,8 @@ package controllers
 
 import (
     "io/ioutil"
+    "math/rand"
+    "time"
     "github.com/revel/revel"
     "bonno/app/models"
     "bonno/app/routes"
@@ -22,13 +24,15 @@ func (c App) Top() revel.Result {
     abdir := revel.Config.StringDefault("bonno.abdir", "./")
     reldir := revel.Config.StringDefault("bonno.reldir","./")
     topmoviedatas, _ := ioutil.ReadDir(abdir+"/other/top")
-    topmoviepath := reldir+"/other/top/"+topmoviedatas[0].Name()
+	rand.Seed(time.Now().UnixNano())
+    i := len(topmoviedatas)
+    topmoviepath := reldir+"/other/top/"+topmoviedatas[rand.Intn(i)].Name()
     return c.Render(topmoviepath)
 }
 
 //動画一覧を表示する
 func (c App) Movie() revel.Result {
-    movielist, _ := DbMap.Select(models.Movie{}, "select * from Movie limit 10")
+    movielist, _ := DbMap.Select(models.Movie{}, "select * from Movie order by RANDOM() limit 10")
     catelist, _ := DbMap.Select(models.Movie{}, "select distinct Tag1 from Movie")
     return c.Render(movielist,catelist)
 }
