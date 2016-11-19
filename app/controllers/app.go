@@ -13,7 +13,7 @@ type App struct {
 
 //インデックス画面を表示する
 func (c App) Index() revel.Result {
-    movielist, _ := DbMap.Select(models.Movie{}, "select * from Movie limit 1")
+    movielist, _ := DbMap.Select(models.Movie{}, "select * from Movie order by RANDOM() limit 1")
     catelist, _ := DbMap.Select(models.Movie{}, "select distinct Tag1 from Movie")
     return c.Render(movielist,catelist)
 }
