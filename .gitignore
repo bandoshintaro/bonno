@@ -5,3 +5,4 @@ app/routes/routes.go
 app/tmp/main.go
 app/.DS_Store
 test_results
+docs/_book
