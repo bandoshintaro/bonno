@@ -3,11 +3,11 @@ package controllers
 
 // modelsはあとで作成します
 import (
-  "database/sql"
-  "gopkg.in/gorp.v1"
-  _ "github.com/mattn/go-sqlite3"
-  "github.com/revel/revel"
-  "bonno/app/models"
+  'database/sql'
+  'gopkg.in/gorp.v1'
+  _ 'github.com/mattn/go-sqlite3'
+  'github.com/revel/revel'
+  'bonno/app/models'
 )
 
 
@@ -20,16 +20,16 @@ var (
 //テーブルの初期化処理
 
 func InitDB() {
-  dbdir := revel.Config.StringDefault("db.directory","./app.db")
-  dbdriver := revel.Config.StringDefault("db.driver","sqlite3")
+  dbdir := revel.Config.StringDefault('db.directory','./app.db')
+  dbdriver := revel.Config.StringDefault('db.driver','sqlite3')
   db, err := sql.Open(dbdriver, dbdir)
   if err != nil {
     panic(err.Error())
   }
   DbMap = &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
 
-  t := DbMap.AddTable(models.Movie{}).SetKeys(true, "Id")
-  t.ColMap("Name").MaxSize = 50
+  t := DbMap.AddTable(models.Movie{}).SetKeys(true, 'Id')
+  t.ColMap('Name').MaxSize = 50
 
   DbMap.CreateTables()
 }

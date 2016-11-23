@@ -1,26 +1,15 @@
 version: '2'
 
 services:
-    traefik:
-        image: traefik
-        restart: always
-        command: --web --docker --docker.domain=localhost --logLevel=DEBUG
-        ports:
-            - "80:80"
-            - "8080:8080"
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - /dev/null:/traefik.toml
     bonno:
         build: ./
+        container_name: bonno
         restart: always
         environment:
             DB_DRIVER: sqlite3
             DB_DIRECTORY: /go/src/bonno/conf/app.db
         volumes:
-           - ./conf:/go/src/bonno/conf
-           - ./public/douga:/go/src/bonno/public/douga
-        labels:
-            - "traefik.backend=bonno"
-            - "traefik.frontend.rule=Host:localhost"
-
+          - ./conf:/go/src/bonno/conf
+          - ./public/douga:/go/src/bonno/public/douga
+        ports:
+          - 80:9000
