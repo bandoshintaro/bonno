@@ -1,0 +1,71 @@
+<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+    <h2>Movie Tags</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseCategory">カテゴリー</div>
+        <ul class="list-group">
+            {{range .catelist}}
+            <li class="list-group-item"><a href="{{url "App.Category" .Tag1}}">{{.Tag1}}</a></li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseGenre">ジャンル</div>
+        <ul class="list-group">
+            {{range .genrelist}}
+            <li class="list-group-item"><a href="{{url "App.Category" .Tag1}}">{{.Tag1}}</a></li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseDate">放送時期</div>
+        <ul class="list-group">
+            {{range .datelist}}
+            <li class="list-group-item"><a href="{{url "App.Category" .Tag1}}">{{.Tag1}}</a></li>
+            {{end}}
+        </ul>
+    </div>
+
+    <h2>Links</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading " data-toggle="collapse" href="#collapseGame">Game</div>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="http://tenhou.net/0/" target="_blank">天鳳</a></li>
+            <li class="list-group-item"><a href="http://disney.kids.yahoo.co.jp/game/pooh.html" target="_blank">ホームランダービー</a></li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseTool">他動画サイト</div>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="http://www.youtube.com/?gl=JP&hl=en" target="_blank">Youtube</a></li>
+            <li class="list-group-item"><a href="http://www.nicovideo.jp/" target="_blank">ニコニコ動画</a></li>
+            <li class="list-group-item"><a href="https://abema.tv/" target="_blank">AbemaTV</a></li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseReference">References</div>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="http://revel.github.io/manual/" target="_blank">Revel</a></li>
+            <li class="list-group-item"><a href="http://golang-jp.org/doc/" target="_blank">Go-lang</a></li>
+            <li class="list-group-item"><a href="https://docs.docker.com/" target="_blank">Docker</a></li>
+            <li class="list-group-item"><a href="https://docs.djangoproject.com/ja/1.9/" target="_blank">Django</a></li>
+            <li class="list-group-item"><a href="https://docs.angularjs.org/api" target="_blank">AngularJS</a></li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" href="#collapseDev">WEBサービス</div>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="https://travis-ci.org" target="_blank">TravisCI</a></li>
+            <li class="list-group-item"><a href="https://drone.io" target="_blank">drone.io</a></li>
+            <li class="list-group-item"><a href="https://github.com" target="_blank">github</a></li>
+            <li class="list-group-item"><a href="https://hub.docker.com" target="_blank">DockerHub</a></li>
+            <li class="list-group-item"><a href="https://openshift.redhat.com/app/console/applications" target="_blank">Openshift</a></li>
+            <li class="list-group-item"><a href="https://console.developers.google.com" target="_blank">Google Developer Console</a></li>
+            <li class="list-group-item"><a href="https://gitter.im" target="_blank">Gitter</a></li>
+            <li class="list-group-item"><a href="https://slack.com" target="_blank">slack</a></li>
+        </ul>
+    </div>
+
+</div>

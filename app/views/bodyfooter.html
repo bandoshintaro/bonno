@@ -1,0 +1,17 @@
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span6">
+          {{template "flash.html" .}}
+        </div>
+      </div>
+    </div>
+
+  {{if eq .RunMode "dev"}}
+    {{template "debug.html" .}}
+  {{end}}
+      <address>Copyright c 2016-20XX ぼんのうアニメ館 All Rights Reserved.</address>
+  </body>
+{{template "footer.html" .}}

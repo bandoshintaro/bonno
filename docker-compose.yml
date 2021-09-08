@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    bonno:
+        build: ./
+        image: bando/bonno
+        restart: always
+        environment:
+            TZ: Asia/Tokyo
